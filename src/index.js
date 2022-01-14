@@ -3,11 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Ref from './Components/Ref'
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
+const Routing = () =>{
+  return <Router>
+    <Switch>
+      <Route path='/' exact render={(routeProps) => <App {...routeProps} />} /> 
+      {/* //render method // */}
+      <Route path='/Ref/:id' exact render={(id)=> <Ref {...id} />} />
+      {/* // component Method //  */}
+    </Switch>
+  </Router>
+}
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Routing />,
   document.getElementById('root')
 );
 
